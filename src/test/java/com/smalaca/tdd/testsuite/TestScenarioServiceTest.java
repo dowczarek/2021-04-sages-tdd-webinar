@@ -18,7 +18,7 @@ public class TestScenarioServiceTest {
     private final TestScenarioService service = new TestScenarioService(repository);
 
     @Test
-    void shouldSaveTestScenarioWhenIsValid() {
+    void shouldSaveValidTestScenario() {
         // given
         givenNotExistingTestScenarioWithName(TEST_SCENARIO_NAME);
         Author author = new Author();
