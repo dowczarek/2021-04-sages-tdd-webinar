@@ -8,7 +8,7 @@ class TestScenarioService {
     }
 
     void add(TestScenario testScenario, Author author) {
-        if (testScenario.hasAssertion() && testScenario.hasExecutablePart()) {
+        if (testScenario.isValid()) {
             repository.save(testScenario, author);
         }
     }

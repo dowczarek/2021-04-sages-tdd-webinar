@@ -17,11 +17,15 @@ class TestScenario {
         this.given = given;
     }
 
-    boolean hasAssertion() {
+    boolean isValid() {
+        return hasAssertion() && hasExecutablePart();
+    }
+
+    private boolean hasAssertion() {
         return assertion != null;
     }
 
-    boolean hasExecutablePart() {
+    private boolean hasExecutablePart() {
         return given != null;
     }
 }
