@@ -79,4 +79,15 @@ INPUT   | OUTPUT
         //then
         assertThat(actual).isEqualTo("Buzz");
     }
+
+    @Test
+    void shouldReturnFizzBuzzWhenNumberDividableByThreeAndFive() {
+        //given
+
+        //when
+        String actual = fizzBuzz.convert(15);
+
+        //then
+        assertThat(actual).isEqualTo("FizzBuzz");
+    }
 }
