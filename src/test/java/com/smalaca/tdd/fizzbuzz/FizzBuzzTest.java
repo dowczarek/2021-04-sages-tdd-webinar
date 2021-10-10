@@ -58,4 +58,14 @@ INPUT   | OUTPUT
         assertThat(actual).isEqualTo("17");
     }
 
+    @Test
+    void shouldReturnFizzWhenNumberDividableByThree() {
+        //given
+
+        //when
+        String actual = fizzBuzz.convert(3);
+
+        //then
+        assertThat(actual).isEqualTo("Fizz");
+    }
 }
