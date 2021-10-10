@@ -1,12 +1,11 @@
 package com.smalaca.tdd.fizzbuzz;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FizzBuzzTest {
-    private final FizzBuzz fizzBuzz = new FizzBuzz();
-    /*
+/*
 Wymagania:
 1. Gdy jest przekazana liczba (int) zwracamy tą liczbę w postaci String'a.
 2. Gdy liczba jest podzielna przez 3 zwracamy Fizz.
@@ -35,59 +34,38 @@ INPUT   | OUTPUT
 19      | 19
 20      | Buzz
 */
+public class FizzBuzzTest {
+    private final FizzBuzz fizzBuzz = new FizzBuzz();
 
-    @Test
-    void shouldReturnThirteenAsString() {
-        //given
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2", "13", "17"})
+    void shouldReturnNumberAsString(String number) {
+        String actual = fizzBuzz.convert(Integer.parseInt(number));
 
-        //when
-        String actual = fizzBuzz.convert(13);
-
-        //then
-        assertThat(actual).isEqualTo("13");
+        assertThat(actual).isEqualTo(number);
     }
 
-    @Test
-    void shouldReturnNumberAsString() {
-        //given
+    @ParameterizedTest
+    @ValueSource(ints = {3, 6, 9, 12})
+    void shouldReturnFizzWhenNumberDividableByThree(int number) {
+        String actual = fizzBuzz.convert(number);
 
-        //when
-        String actual = fizzBuzz.convert(17);
-
-        //then
-        assertThat(actual).isEqualTo("17");
-    }
-
-    @Test
-    void shouldReturnFizzWhenNumberDividableByThree() {
-        //given
-
-        //when
-        String actual = fizzBuzz.convert(3);
-
-        //then
         assertThat(actual).isEqualTo("Fizz");
     }
 
-    @Test
-    void shouldReturnBuzzWhenNumberDividableByFive() {
-        //given
+    @ParameterizedTest
+    @ValueSource(ints = {5, 10, 20})
+    void shouldReturnBuzzWhenNumberDividableByFive(int number) {
+        String actual = fizzBuzz.convert(number);
 
-        //when
-        String actual = fizzBuzz.convert(5);
-
-        //then
         assertThat(actual).isEqualTo("Buzz");
     }
 
-    @Test
-    void shouldReturnFizzBuzzWhenNumberDividableByThreeAndFive() {
-        //given
+    @ParameterizedTest
+    @ValueSource(ints = {15, 30, 45})
+    void shouldReturnFizzBuzzWhenNumberDividableByThreeAndFive(int number) {
+        String actual = fizzBuzz.convert(number);
 
-        //when
-        String actual = fizzBuzz.convert(15);
-
-        //then
         assertThat(actual).isEqualTo("FizzBuzz");
     }
 }
