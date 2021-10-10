@@ -1,5 +1,9 @@
 package com.smalaca.tdd.fizzbuzz;
 
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class FizzBuzzTest {
 /*
 Wymagania:
@@ -30,5 +34,17 @@ INPUT   | OUTPUT
 19      | 19
 20      | Buzz
 */
+
+    @Test
+    void shouldReturnNumberAsString() {
+        //given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        //when
+        String actual = fizzBuzz.convert(13);
+
+        //then
+        assertThat(actual).isEqualTo("13");
+    }
 
 }
