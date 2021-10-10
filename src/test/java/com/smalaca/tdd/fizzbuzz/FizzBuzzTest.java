@@ -68,4 +68,15 @@ INPUT   | OUTPUT
         //then
         assertThat(actual).isEqualTo("Fizz");
     }
+
+    @Test
+    void shouldReturnBuzzWhenNumberDividableByFive() {
+        //given
+
+        //when
+        String actual = fizzBuzz.convert(5);
+
+        //then
+        assertThat(actual).isEqualTo("Buzz");
+    }
 }
