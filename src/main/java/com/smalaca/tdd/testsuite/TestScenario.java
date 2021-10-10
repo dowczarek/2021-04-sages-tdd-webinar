@@ -28,4 +28,8 @@ class TestScenario {
     private boolean hasExecutablePart() {
         return given != null;
     }
+
+    String name() {
+        return name;
+    }
 }
