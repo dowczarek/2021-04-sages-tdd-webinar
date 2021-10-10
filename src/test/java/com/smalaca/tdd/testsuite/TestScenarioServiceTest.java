@@ -16,6 +16,7 @@ Wymagania:
  */
 public class TestScenarioServiceTest {
     public static final String TEST_SCENARIO_NAME = "same name of test scenario";
+    public static final Author AUTHOR = new Author();
     private final TestScenarioRepository repository = mock(TestScenarioRepository.class);
     private final TestScenarioService service = new TestScenarioService(repository);
 
@@ -23,28 +24,26 @@ public class TestScenarioServiceTest {
     void shouldSaveValidTestScenario() {
         // given
         givenNotExistingTestScenarioWithName(TEST_SCENARIO_NAME);
-        Author author = new Author();
         TestScenario testScenario = new TestScenario(TEST_SCENARIO_NAME);
         testScenario.add(new TestAssertion());
         testScenario.add(new GivenPart());
 
         // when
-        service.add(testScenario, author);
+        service.add(testScenario, AUTHOR);
 
         // then
-        thenTestScenarioWasSaved(testScenario, author);
+        thenTestScenarioWasSaved(testScenario, AUTHOR);
     }
 
     @Test
     void shouldNotSaveTestScenarioWithoutAssertion() {
         // given
         givenNotExistingTestScenarioWithName(TEST_SCENARIO_NAME);
-        Author author = new Author();
         TestScenario testScenario = new TestScenario(TEST_SCENARIO_NAME);
         testScenario.add(new GivenPart());
 
         // when
-        service.add(testScenario, author);
+        service.add(testScenario, AUTHOR);
 
         // then
         thenTestScenarioWasNotSaved();
@@ -54,12 +53,11 @@ public class TestScenarioServiceTest {
     void shouldNoteSaveTestScenarioWithoutExecutablePart() {
         // given
         givenNotExistingTestScenarioWithName(TEST_SCENARIO_NAME);
-        Author author = new Author();
         TestScenario testScenario = new TestScenario(TEST_SCENARIO_NAME);
         testScenario.add(new TestAssertion());
 
         // when
-        service.add(testScenario, author);
+        service.add(testScenario, AUTHOR);
 
         // then
         thenTestScenarioWasNotSaved();
@@ -68,13 +66,12 @@ public class TestScenarioServiceTest {
     void shouldNotSaveValidTestScenarioWhenTestScenarioGivenNameExists() {
         // given
         givenExistingTestScenarioWithName(TEST_SCENARIO_NAME);
-        Author author = new Author();
         TestScenario testScenario = new TestScenario(TEST_SCENARIO_NAME);
         testScenario.add(new TestAssertion());
         testScenario.add(new GivenPart());
 
         // when
-        service.add(testScenario, author);
+        service.add(testScenario, AUTHOR);
 
         // then
         thenTestScenarioWasNotSaved();
