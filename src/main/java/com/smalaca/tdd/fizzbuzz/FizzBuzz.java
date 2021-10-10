@@ -1,7 +1,7 @@
 package com.smalaca.tdd.fizzbuzz;
 
 class FizzBuzz {
-    String convert(int i) {
-        return String.valueOf(i);
+    String convert(int number) {
+        return String.valueOf(number);
     }
 }
