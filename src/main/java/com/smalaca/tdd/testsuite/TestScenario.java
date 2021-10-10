@@ -16,4 +16,8 @@ class TestScenario {
     void add(GivenPart given) {
         this.given = given;
     }
+
+    boolean hasAssertion() {
+        return assertion != null;
+    }
 }

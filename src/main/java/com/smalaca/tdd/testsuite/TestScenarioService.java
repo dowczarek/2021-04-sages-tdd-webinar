@@ -8,6 +8,8 @@ class TestScenarioService {
     }
 
     void add(TestScenario testScenario, Author author) {
-        repository.save(testScenario, author);
+        if (testScenario.hasAssertion()) {
+            repository.save(testScenario, author);
+        }
     }
 }
