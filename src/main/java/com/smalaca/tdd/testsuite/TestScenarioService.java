@@ -8,5 +8,6 @@ class TestScenarioService {
     }
 
     void add(TestScenario testScenario, Author author) {
+        repository.save(testScenario, author);
     }
 }
