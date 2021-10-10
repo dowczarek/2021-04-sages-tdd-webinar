@@ -14,6 +14,7 @@ Wymagania:
  */
 public class TestScenarioServiceTest {
     private final TestScenarioRepository repository = mock(TestScenarioRepository.class);
+    private final TestScenarioService service = new TestScenarioService(repository);
 
     @Test
     void shouldSaveTestScenarioWhenIsValid() {
@@ -25,7 +26,7 @@ public class TestScenarioServiceTest {
         testScenario.add(new GivenPart());
 
         // when
-        new TestScenarioService(repository).add(testScenario, author);
+        service.add(testScenario, author);
 
         // then
         thenTestScenarioWasSaved(testScenario, author);
