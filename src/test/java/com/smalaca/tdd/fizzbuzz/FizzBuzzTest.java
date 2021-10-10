@@ -53,10 +53,10 @@ INPUT   | OUTPUT
         FizzBuzz fizzBuzz = new FizzBuzz();
 
         //when
-        String actual = fizzBuzz.convert(42);
+        String actual = fizzBuzz.convert(17);
 
         //then
-        assertThat(actual).isEqualTo("42");
+        assertThat(actual).isEqualTo("17");
     }
 
 }
