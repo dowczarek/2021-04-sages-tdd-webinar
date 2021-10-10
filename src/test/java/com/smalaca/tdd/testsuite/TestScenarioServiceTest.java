@@ -13,15 +13,16 @@ Wymagania:
 3. TestScenario może zostać zapisany gdy nie istnieje TestScenario z taką samą nazwą
  */
 public class TestScenarioServiceTest {
+    public static final String TEST_SCENARIO_NAME = "same name of test scenario";
     private final TestScenarioRepository repository = mock(TestScenarioRepository.class);
     private final TestScenarioService service = new TestScenarioService(repository);
 
     @Test
     void shouldSaveTestScenarioWhenIsValid() {
         // given
-        givenNotExistingTestScenarioWithName("shouldSaveScenario");
+        givenNotExistingTestScenarioWithName(TEST_SCENARIO_NAME);
         Author author = new Author();
-        TestScenario testScenario = new TestScenario("shouldSaveScenario");
+        TestScenario testScenario = new TestScenario(TEST_SCENARIO_NAME);
         testScenario.add(new TestAssertion());
         testScenario.add(new GivenPart());
 
