@@ -36,7 +36,7 @@ INPUT   | OUTPUT
 */
 
     @Test
-    void shouldReturnNumberAsString() {
+    void shouldReturnThirteenAsString() {
         //given
         FizzBuzz fizzBuzz = new FizzBuzz();
 
@@ -45,6 +45,18 @@ INPUT   | OUTPUT
 
         //then
         assertThat(actual).isEqualTo("13");
+    }
+
+    @Test
+    void shouldReturnNumberAsString() {
+        //given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        //when
+        String actual = fizzBuzz.convert(42);
+
+        //then
+        assertThat(actual).isEqualTo("42");
     }
 
 }
